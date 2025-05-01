@@ -1,0 +1,10 @@
+{
+    "java.project.sourcePaths": [
+        "src",
+        "aed-2023-2-ut1-pd1-ej5-gasparlamas/src/main/java/uy/edu/ucu/aed/ut1pd1ej5"
+    ],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar"
+    ]
+}

@@ -1,0 +1,78 @@
+Crear los elementos y la lista:
+
+Precondiciones--
+
+Postcondiciones--
+La lista debe ser creada
+Los elementos deben ser creados 
+
+Pseudocodigo:
+Función CrearLista(elementos=None):
+    Si elementos es None:
+        Devolver una lista vacía
+    Sino:
+        Devolver una lista con los elementos proporcionados
+
+
+
+Insertar un elemento en la lista:
+
+Precondiciones --
+La lista tiene que existir
+Postcondiciones --
+El elemento tiene que ser agregado al final de la lista
+
+Pseudocódigo--
+Función InsertarAlFinal(lista,elemento)
+	lista.agregar(elemento)
+
+
+Buscar un elemento en la lista:
+
+Precondiciones--
+La lista tiene que existir
+Postcondiciones--
+La funcion debe devolver el indice del elemento deseado
+Si el elemento no existe se devuelve un mensaje indicandolo
+
+Pseudocódigo--
+Función BuscarElemento(lista,elemento)
+	lista.buscar(elemento)
+	si lista.indice = elemento.indice:
+		devolver elemento.indice
+	sino
+		devolver "El elemento no se muestra en la lista"
+
+Imprimir los elementos de un a lista:
+
+Precondiciones--
+La lista debe existir
+Postcondiciones--
+Se deben imprimir todos los elementos de la lista
+
+Pseudocodigo--
+
+Funcion ImprimirElementos(lista)
+	Para cada elemento en lista:
+		Imprimir elemento
+
+
+Eliminar un elemento de una lista, dada su clave:
+
+Precondiciones--
+La lista debe existir.
+La clave proporcionada debe ser válida.
+Postcondiciones--
+El elemento correspondiente a la clave proporcionada se elimina de la lista
+
+Pseudocódigo--
+Función EliminarElementoPorClave(lista, clave):
+	Si clave >= 0 y clave < longitud(lista):
+		Eliminar lista[clave]
+		Devolver "Elemento eliminado"
+    	Sino:
+        	Devolver "Clave inválida"
+
+
+
+

@@ -1,0 +1,52 @@
+1)
+
+Observa el siguiente código:
+String s = "1";
+while (s != "1000") {
+s += "0";
+}
+El mismo representa un bucle infinito ya que la comparación con el operador == entre el objeto s y el
+literal “1000” jamás devuelve True.
+● ¿Por qué esto es así? ¿Qué diferencia representa con otros lenguajes como C#?
+
+La forma de evaluar el contenido de una cadena es usando el metodo "equals()", ya que el operador == compara si dos objetos apuntan al mismo lugar en la memoria, no al contenido en sí.
+
+2)
+
+i)
+String s1 = "Hola";
+String s2 = "Hola";
+if (s1 == s2) {
+    System.out.println("True");
+} else {
+    System.out.println("False");
+}
+
+ii)
+String s1 = new String("Hola");
+String s2 = "Hola";
+if (s1 == s2) {
+    System.out.println("True");
+} else {
+    System.out.println("False");
+}
+
+
+a) En el caso i) devuelve el valor True, mientras que en ii) devuelve false. Esta diferencia se debe a la forma en la que se declaran las variables en los casos.
+   En i) las dos cadenas se inicializan directamente con el mismo contenido, no se crean objetos distintos en la memoria. Para cadenas literalmente iguales Java tiene
+   un sector llamado "String Pool", donde las cadenas que tienen la misma referencia son compartidas, por lo tanto serian el mismo objeto.
+   Para el caso ii) s1 se inicializa como un objeto String con el contenido "Hola", mientras que s2 es una cadena literal.
+   Estos dos objetsos apuntan a lugares distintos de la memoria, por lo que para evaluarlos por su contenido seria necesario el metodo equals().
+
+b)
+ii)
+String s1 = new String("Hola");
+String s2 = "Hola";
+if (s1.equals(s2)) {
+    System.out.println("True");
+} else {
+    System.out.println("False");
+}
+
+
+

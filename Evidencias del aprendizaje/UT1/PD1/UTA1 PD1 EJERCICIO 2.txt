@@ -1,0 +1,66 @@
+UTA1 PD1 EJERCICIO 2
+
+Dado el siguiente código fuente:
+
+public class Zumbido {
+
+public static void desconcertar (String dirigible) {
+  System.out.println (dirigible);
+  sipo ("ping", -5);
+}
+
+public static void sipo (String membrillo, int flag) {
+  if (flag < 0) {
+  System.out.println (membrillo + " sup");
+  } else {
+     System.out.println ("ik");
+     desconcertar (membrillo);
+     System.out.println ("muaa-ja-ja-ja");
+     }
+  }
+public static void main (String[] args) {
+  sipo ("traqueteo", 13);
+  }
+}
+
+a) ¿Cuál es la primera sentencia que se ejecuta?
+
+b) Escribir número 2 al lado de la segunda sentencia, un 3 al lado de la que se ejecuta en
+tercer lugar, y así siguiendo hasta el final del programa. Si una sentencia se ejecuta más
+de una vez, puede que termine con más de un número al lado.
+
+
+Solución:
+
+a) La primer sentencia que se ejecuta es la llamada a sipo desde el main.
+   Se carga sipo con los valores "traqueteo" y 13.
+   int flag no es <0, por lo que no ejecuta la sentencia "System.out.println (membrillo + " sup")"
+   Entra en el else y ejecuta el bloque de código dentro:
+   
+   Salida:
+
+   ik /n //Se imprime "ik" y se realiza un salto de linea por el llamado a desconcertar"
+   traqueteo /n //Imprime el string dirigible membrillo cargado con el valor "traqueteo" y ejecuta sipo.
+   ping sup /n //Como se cargo un flag < 0 (-5), esta vez si se ejecuta la sentencia "System.out.println (membrillo + " sup")", cargada con el valor "ping"
+               //al que se le suma una cadena de texto " sup", el espacio antes de sup hace que se imprima "ping sup" de no estar ese espacio seria "pingsup". Salto de linea
+   muaa-ja-ja-ja // Finalmente se imprime "muaa-ja-ja-ja"
+
+b) 1) public static void main (String[] args) {
+       sipo ("traqueteo", 13);
+       }
+   2) Ejecuta sipo
+   3) Analiza la condición del if dadas las variables ("traqueteo",13), no cumple la condición asi que no ejecuta el código.
+   4) Entra directo en el esle a ejecutar las sentencias
+   5) System.out.println ("ik"), imprime 
+   6) Llama al método desconcertar
+   7) Imprime el valor "traqueteo"
+   8) Llama a sipo
+   9) Le pasa los valores ("ping",-5)
+   10) Entra en el if porque cumple la condición
+   11) System.out.println (membrillo + " sup"), imprime "ping sup"
+   12) Vuelve a donde estaba ejecutando originalmente en sipo (antes de la sentencia 6)
+   13) System.out.println ("muaa-ja-ja-ja"), imprime
+	
+
+   
+	

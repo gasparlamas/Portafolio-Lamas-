@@ -1,0 +1,70 @@
+Ejercicio #1
+Desarrolla los algoritmos para implementar las operaciones de Union e Intersección sobre el TDA LISTA,
+utilizado para representar un CONJUNTO. Los conjuntos de entrada se encuentran ordenados.
+Debes seguir las normas para desarrollo de algoritmos en seudocódigo brindadas en el curso:
+• especificación en lenguaje natural,
+• pre y post condiciones,
+• seudocódigo y
+• especificación de casos de prueba.
+• Analiza detalladamente el orden del tiempo de ejecución de estos algoritmos
+
+
+-----------------------------------------------------------------------------------
+Especificación en lenguaje natural:
+Dadas 2 listas con elementos en su interior (listas sin repetidos), se busca desarrollar algoritmos para realizar las operaciones de unión e intersección sobre dichas listas.
+
+-----------------------------------------------------------------------------------
+Pre y post condiciones:
+
+Precondiciones:
+-Tener lista 1 creada
+-Tener lista 2 creada
+-Listas sin elementos repetidos
+
+Postcondiciones:
+-Tanto en la unión y la intersección se debe devolver una nueva lista con el conjunto de elementos correspondiente a la operación.
+-La lista devuelta no contendrá elementos repetidos.
+
+-----------------------------------------------------------------------------------
+Pseudocódigo y especificación de casos de prueba:
+
+PROGRAMA UNION
+lista1 = [1,2,3,4,5]
+lista2 = [3,4,6,7,8,9]
+lista3 = []
+Para cada elemento de lista1:
+	Si elemento no está en lista3:
+		Almacenar en lista 3
+Para cada elemento de lista2:
+	Si elemento no está en lista3:
+		Almacenar en lista 3
+Devolver lista 3
+
+Tiempo de ejecucion: O(N)
+
+PROGRAMA INTERSECCION
+lista1 = [1,2,3,4,5]
+lista2 = [3,4,6,7,8,9]
+lista3 = []
+Para cada elemento de lista1:
+	Para cada elemento de lista2:
+		Si elemento lista 1 == elemento lista 2
+			Almacenar en lista 3
+Devolver lista 3
+
+Tiempo de ejecución: O(N**2)
+
+Casos de prueba:
+-Listas vacias
+-Una lista vacia y otra no
+-Listas con elementos
+
+
+
+
+
+
+
+
+
+
