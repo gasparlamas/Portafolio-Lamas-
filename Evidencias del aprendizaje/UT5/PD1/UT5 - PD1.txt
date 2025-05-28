@@ -1,0 +1,70 @@
+UT5 - PD1
+
+1) Algoritmo que permita agregar una unidad académica al organigrama
+Función Insertar(unaEtiqueta, etiquetaPadre)
+    Si Buscar(unaEtiqueta, raiz) ≠ nulo Entonces
+        Retornar falso  // Ya existe una unidad con esa etiqueta
+    FinSi
+
+    nuevoNodo ← CrearNodo(unaEtiqueta)
+
+    Si etiquetaPadre = "" Entonces
+        Si raiz = nulo Entonces
+            raiz ← nuevoNodo
+            Retornar verdadero
+        Sino
+            Retornar falso  // Ya hay una raíz, no se puede agregar otra
+        FinSi
+    Sino
+        nodoPadre ← Buscar(etiquetaPadre, raiz)
+        Si nodoPadre = nulo Entonces
+            Retornar falso  // No se encontró el padre
+        FinSi
+
+        Agregar nuevoNodo a la lista de hijos de nodoPadre
+        Retornar verdadero
+    FinSi
+FinFunción
+
+// Funcion auxiliar
+Función Buscar(etiqueta, nodoActual) → Nodo
+    Si nodoActual = nulo Entonces
+        Retornar nulo
+    FinSi
+
+    Si nodoActual.etiqueta = etiqueta Entonces
+        Retornar nodoActual
+    FinSi
+
+    Para cada hijo en nodoActual.hijos hacer
+        resultado ← Buscar(etiqueta, hijo)
+        Si resultado ≠ nulo Entonces
+            Retornar resultado
+        FinSi
+    FinPara
+
+    Retornar nulo
+FinFunción
+
+
+2) Lenguaje natural para casos de prueba
+
+Casos de prueba para insertar:
+-Insertar un elemento como raíz cuando el árbol está vacío → Debe devolver true
+-Insertar una elemento con una etiqueta que ya existe → Debe devolver false.
+-Insertar un elemento con un padre que no existe en el árbol → Debe devolver false.
+
+Casos de prueba para buscar:
+-Buscar una etiqueta que existe en el árbol → Debe devolver el nodo correspondiente.
+-Buscar una etiqueta que no existe → Debe devolver nulo o null.
+-Buscar en un árbol vacío → Debe devolver nulo.
+
+Casos de prueba para listarIndentado:
+-Listar un árbol vacío → No debe mostrar nada o solo un mensaje como "Sin unidades registradas".
+-Listar un árbol con un solo elemento (la raíz) → Debe mostrar solo la raiz
+-Listar un árbol con múltiples niveles (padres e hijos) → Los elementos deben mostrarse indentados según su nivel jerárquico.
+
+
+
+
+
