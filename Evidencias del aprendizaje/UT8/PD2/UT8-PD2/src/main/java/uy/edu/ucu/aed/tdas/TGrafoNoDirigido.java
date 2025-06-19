@@ -65,10 +65,42 @@ public class TGrafoNoDirigido extends TGrafoDirigido implements IGrafoNoDirigido
 
     @Override
     public TGrafoNoDirigido Kruskal() {
-        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
-                                                                       // Tools | Templates.
+        Collection<IArista> aristasAAM = new LinkedList<>();
+        LinkedList<TArista> aristasOrdenadas = new LinkedList<>();
+        for (IArista arista : lasAristas) {
+            aristasOrdenadas.add((TArista) arista);
+        }
+        aristasOrdenadas.sort((a, b) -> Double.compare(a.getCosto(), b.getCosto())); //ordenar por costo
+
+        // inicializar cada vértice en su propia lista / ocomponente
+        LinkedList<LinkedList<Comparable>> componentes = new LinkedList<>();
+        for (IVertice v : getVertices().values()) {
+            LinkedList<Comparable> comp = new LinkedList<>();
+            comp.add(v.getEtiqueta());
+            componentes.add(comp);
+        }
+
+        for (TArista arista : aristasOrdenadas) {
+            LinkedList<Comparable> compU = null;
+            LinkedList<Comparable> compV = null;
+            // buscar a qué componente pertenece cada extremo
+            for (LinkedList<Comparable> comp : componentes) {
+                if (comp.contains(arista.getEtiquetaOrigen())) compU = comp;
+                if (comp.contains(arista.getEtiquetaDestino())) compV = comp;
+            }
+            // unir componentes y agregar la arista
+            if (compU != null && compV != null && compU != compV) {
+                aristasAAM.add(arista);
+                compU.addAll(compV);
+                componentes.remove(compV);
+            }
+            // cuando queda un solo componente se termina
+            if (componentes.size() == 1) break;
+        }
+        return new TGrafoNoDirigido(getVertices().values(), aristasAAM);
     }
 
+    
     @Override
     public Collection<IVertice> bea(Comparable etiquetaOrigen) {
         for (IVertice v : getVertices().values()) {
@@ -94,5 +126,20 @@ public class TGrafoNoDirigido extends TGrafoDirigido implements IGrafoNoDirigido
             }
         }
         return resultado;
+    }
+
+    
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Aristas del árbol generado por Kruskal/Prim:\n");
+        for (IArista arista : lasAristas) {
+            sb.append(arista.getEtiquetaOrigen())
+              .append(" - ")
+              .append(arista.getEtiquetaDestino())
+              .append(" (costo: ")
+              .append(arista.getCosto())
+              .append(")\n");
+        }
+        return sb.toString();
     }
 }

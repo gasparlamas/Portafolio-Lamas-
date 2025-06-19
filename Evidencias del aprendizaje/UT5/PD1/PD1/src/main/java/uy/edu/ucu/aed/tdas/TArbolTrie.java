@@ -27,7 +27,7 @@ public class TArbolTrie {
 
 	public void listarIndentado() {
 		if (raiz != null) {
-			raiz.listarIndentado();
+			raiz.listarIndentado("");
 		}
 	}
 

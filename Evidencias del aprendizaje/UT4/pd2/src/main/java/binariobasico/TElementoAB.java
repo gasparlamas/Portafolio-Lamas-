@@ -186,13 +186,13 @@ public class TElementoAB<T> implements IElementoAB {
         }
     }
 
-    public int Tamanio() {
+    public int tamanio() {
         int contador = 1;
         if (this.getHijoIzq() != null) {
-            contador += hijoIzq.Tamanio();
+            contador += hijoIzq.tamanio();
         }
         if (this.getHijoDer() != null) {
-            contador += hijoDer.Tamanio();
+            contador += hijoDer.tamanio();
         }
         return contador;
     }

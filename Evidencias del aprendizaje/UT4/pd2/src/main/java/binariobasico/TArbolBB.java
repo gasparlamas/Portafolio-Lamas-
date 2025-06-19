@@ -69,4 +69,18 @@ public class TArbolBB<T> implements IArbolBB<T>{
     private boolean esVacio(){
         return raiz == null;
     }
+
+    public int altura() {
+        if (this.raiz == null) {
+            return 1; // or 0, depending on your convention for empty tree height
+        }
+        return this.raiz.altura();
+    }
+
+    public int tamanio() {
+        if (this.raiz == null) {
+            return 0;
+        }
+        return this.raiz.tamanio();
+    }
 }

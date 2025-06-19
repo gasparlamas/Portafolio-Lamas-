@@ -4,6 +4,7 @@ import java.util.Collection;
 
 public interface IGrafoNoDirigido {
 
+   
 
     Collection<IVertice> bea(Comparable etiquetaOrigen);
 
