@@ -1,0 +1,52 @@
+UT4 - PD4
+
+1)
+a) El TDA Grafo No Dirigido representa perfectamente este problema
+Para resolver este problema se pueden usar los algoritmos de prim o kruskal, que genera un arbola abarcador mínimo (AAM), que conecta todos los puntos (ciudades) del grafo con las rutas mas económicas y optimas.
+
+b)
+Algoritmo de Prim para AAM:
+U: conjunto de vértices;
+u, v: vértice;
+
+COMIENZO
+	T. Vaciar;
+	U.agregar(V.quitarprimero)
+	Mientras V no vacío hacer
+		tempArista <-aristas.buscarMin(U,V)
+		aristasAAM.Insertar(tempArista)
+		V.quitar(tempArista.etiquetaDestino)
+		U.agregar(tempArista.etiquetaDestino)
+		costoPrim <- costoPrim + tempArista.costo
+	Fin mientras
+	Devolver nuevo TGrafoNoDirigido(U, AristasAAM)
+FIN
+
+c)
+Iteración	U		V − U		Arista(U, V)	Costo
+1		1		2,3,4,5,6	(1,4)		3
+2		1,4		2,3,5,6		(4,6)		3
+3		1,4,6		2,3,5		(4,3)		4
+4		1,4,6,3		2,5		(3,2)		3
+5		1,4,6,3,2	5		(3,5)		5
+
+Costo total = 18
+
+
+2)
+booleano conectados(v, w)
+    visitados ← conjunto vacío
+    retornar bpf (v, w, visitados)
+
+bpf(actual, destino, visitados)
+    si actual = destino entonces
+        retornar verdadero
+
+    agregar actual a visitados
+
+    para cada vecino en adyacentes(actual) hacer
+        si vecino no está en visitados entonces
+            si bpf(vecino, destino, visitados) entonces
+                retornar verdadero
+
+    retornar falso
