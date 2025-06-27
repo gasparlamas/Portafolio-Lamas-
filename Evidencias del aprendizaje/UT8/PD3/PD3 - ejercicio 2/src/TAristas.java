@@ -17,7 +17,14 @@ public class TAristas extends LinkedList<TArista> {
      * @return
      */
     public TArista buscar(Comparable etOrigen, Comparable etDestino) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        TArista tempArista;
+        for (TArista laa : this) {
+            if ((laa.getEtiquetaOrigen().equals(etOrigen)) && laa.getEtiquetaDestino().equals(etDestino)) {
+                return laa;
+            }
+        }
+
+        return null;
     }
 
     /**
@@ -29,17 +36,22 @@ public class TAristas extends LinkedList<TArista> {
      * @return
      */
     public TArista buscarMin(Collection<Comparable> VerticesU, Collection<Comparable> VerticesV) {
-       
-        //---------COMPLETAR ALGORITMO--------
-        // para todo u en Vertices U
-        // para todo v en Vertices V
-        // tA =buscar (u, v)
-        // si tA <> null y tA.costo < costoMin entonces
-        // tAMin = tA y costoMin = tA.costo
-        // fin para todo v
-        // fin para todo u
-        // devolver tAMin
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        TArista tempArista;
+        TArista tAMin = null;
+        Double costoMin = Double.POSITIVE_INFINITY;
+
+        for (Comparable u : VerticesU) {
+            for (Comparable v : VerticesV) {
+                tempArista = buscar(u, v);
+                if (tempArista != null) {
+                    if (tempArista.getCosto() < costoMin) {
+                        costoMin = tempArista.getCosto();
+                        tAMin = tempArista;
+                    }
+                }
+            }
+        }
+        return tAMin;
     }
 
     public String imprimirEtiquetas() {
