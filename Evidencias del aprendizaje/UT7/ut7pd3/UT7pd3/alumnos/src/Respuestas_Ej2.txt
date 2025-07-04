@@ -1,0 +1,23 @@
+Pregunta 1:
+
+La clase TCaminos sirve para gestionar una colección de caminos en un grafo. 
+Esencialmente, esta clase permite almacenar, manejar y mostrar múltiples caminos que pueden encontrarse en un grafo. 
+
+Pregunta 2:
+Para almacenar y calcular el costo de un camino en un grafo, se utiliza la clase TCamino. 
+Esta clase gestiona tanto las etiquetas de los vértices que componen el camino como el costo total del mismo. 
+
+Inicializa el camino con el vértice de origen y una colección para almacenar los otros vértices.
+
+agregarAdyacencia: Este método agrega una adyacencia (un arco) al camino y actualiza el costo total del camino.
+
+eliminarAdyacencia: Este método elimina una adyacencia del camino y ajusta el costo total en consecuencia.
+
+Métodos para obtener y establecer valores:
+Métodos getter y setter para acceder y modificar los atributos origen, otrosVertices, y costoTotal.
+
+Método copiar:
+Crea una copia del camino actual.
+
+Método imprimirEtiquetas:
+Imprime las etiquetas de los vértices del camino en formato textual.
